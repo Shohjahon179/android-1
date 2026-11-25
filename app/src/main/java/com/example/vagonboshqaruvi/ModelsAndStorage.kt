@@ -190,10 +190,10 @@ class LocalStorage(context: Context) {
     private val prefs = context.getSharedPreferences("vagon_boshqaruvi_v8_db", Context.MODE_PRIVATE)
     private val gson = Gson()
 
-    companion object {
-        const val DEFAULT_FIREBASE_URL = "https://SIZNING-SERVER.onrender.com"
-        const val DEFAULT_API_KEY = "O'ZGARTIRING-API-KALIT"
-    }
+   companion object {
+    const val DEFAULT_FIREBASE_URL = "https://android-1-l7lg.onrender.com"
+    const val DEFAULT_API_KEY = "postgresql://neondb_owner:npg_zXlY2bBUMy3c@ep-dark-resonance-be43qzkh-pooler.c-9.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+}
 
     fun getFirebaseUrl(): String {
         return prefs.getString("server_url", DEFAULT_FIREBASE_URL) ?: DEFAULT_FIREBASE_URL
