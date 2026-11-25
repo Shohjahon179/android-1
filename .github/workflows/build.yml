@@ -9,26 +9,29 @@ on:
 
 jobs:
   build:
-    name: Android APK Build
     runs-on: ubuntu-latest
-
     steps:
       - name: Kodlarni yuklash
         uses: actions/checkout@v4
 
-      - name: Java 17 o'rnatish
+      - name: Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: '17'
 
-      - name: Gradle ruxsatini berish
-        run: chmod +x gradlew
+      - name: Gradle o'rnatish
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.6'
+
+      - name: Wrapper yaratish
+        run: gradle wrapper --gradle-version 8.6
 
       - name: APK yaratish
         run: ./gradlew assembleDebug
 
-      - name: APK yuklash
+      - name: APK saqlash
         uses: actions/upload-artifact@v4
         with:
           name: Vagon-Boshqaruvi-APK
